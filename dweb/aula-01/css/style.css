@@ -1,62 +1,85 @@
-  /*Sans-serif: sem serifa (sem curvinhas unindo as letras)*/
-            body {
-                background-color: rgb(169, 169, 252);
-                font-family:Verdana, Geneva, Tahoma, sans-serif;
-                font-size: 12px;
-                font-weight: normal;
-            }
+body {
+    background-color: rgb(169, 169, 252);
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 12px;
+    font-weight: normal;
+}
 
 
-            h1 {
-                color:blue;
-                background-color: yellow;
-                font-size: 24px;
-                font-weight: bold;
-                border: 1px solid black;
-                padding: 10px 20px 5px 40px;
-                text-align: left;
-            }
+h1 {
+    color:red;
+    background-color: green;
+    font-size: 24px;
+    font-weight: bold;
+    border: 1px solid black;
+    padding: 10px 20px 5px 40px;
+    text-align: left;
+}
 
 
-            #ifam {
-                color:darkblue;
-                font-weight: 600;
-            }
-            
+#ifam {
+    color:darkblue;
+    font-weight: 600;
+}
 
-            /*p - seletor / tipo do elemento*/
-            /*# - para id, que especifica um elemento*/
-            /*
-            #p-cursos1 {
-                color: slateblue;
-                background-color: lightcyan;
-            }
-            
-            #p-cursos2 {
-                color: deepskyblue;
-                background-color: lightcyan;
-            }
-            
-            #p-pesquisa {
-                color:darkmagenta;
-                background-color: antiquewhite;
-            }
-            
-            #p-biblioteca {
-                color:deeppink;
-                background-color: lightpink;
-            }
-            
-            
-            /*. - para classe, que personaliza varios elementos
-            .primeiro-paragrafo {
-                color:darkmagenta;
-                background-color: antiquewhite;    
-            }
-            
-            .segundo-paragrafo {
-                color: slateblue;
-                background-color: lightcyan
-            }
-            */
-            /*O mais especifico sempre tem mais prioridade*/
+table {
+    color:blueviolet;
+    justify-content: center;
+    background-color: lightblue;
+    font-weight: bold;
+    border: 1px  solid black;
+    border-collapse: collapse;
+
+}
+
+td {
+    padding: 10px 10px 10px 10px;
+
+}
+
+.caption-table {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.a-table {
+    text-decoration: none;
+    color: deeppink;
+}
+/*Sans-serif: sem serifa (sem curvinhas unindo as letras)*/
+/*p - seletor / tipo do elemento*/
+/*# - para id, que especifica um elemento*/
+/*
+#p-cursos1 {
+    color: slateblue;
+    background-color: lightcyan;
+}
+
+#p-cursos2 {
+    color: deepskyblue;
+    background-color: lightcyan;
+}
+
+#p-pesquisa {
+    color:darkmagenta;
+    background-color: antiquewhite;
+}
+
+#p-biblioteca {
+    color:deeppink;
+    background-color: lightpink;
+}
+
+
+/*. - para classe, que personaliza varios elementos
+.primeiro-paragrafo {
+    color:darkmagenta;
+    background-color: antiquewhite;    
+}
+
+.segundo-paragrafo {
+    color: slateblue;
+    background-color: lightcyan
+}
+*/
+/*O mais especifico sempre tem mais prioridade*/
