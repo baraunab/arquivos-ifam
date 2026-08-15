@@ -6,27 +6,54 @@
         <!-- Redenriza caracteres unicode -->
         <title>IFAM</title>
         <style>
+            /*Sans-serif: sem serifa (sem curvinhas unindo as letras)*/
+            body {
+                font-family:Verdana, Geneva, Tahoma, sans-serif;
+                font-size: 12px;
+                font-weight: 500;
+            }
+
             /*p - seletor / tipo do elemento*/
+            /*# - para id, que especifica um elemento*/
+            
             #p-cursos1 {
                 color: slateblue;
                 background-color: lightcyan;
+                font-weight: 800;
             }
-
+            
             #p-cursos2 {
                 color: deepskyblue;
                 background-color: lightcyan;
             }
             
-
             #p-pesquisa {
                 color:darkmagenta;
                 background-color: antiquewhite;
             }
-
+            
             #p-biblioteca {
                 color:deeppink;
                 background-color: lightpink;
             }
+
+            #ifam {
+                color:darkblue;
+                font-style: italic;
+            }
+            
+            /*. - para classe, que personaliza varios elementos*/
+            .primeiro-paragrafo {
+                color:darkmagenta;
+                background-color: antiquewhite;    
+                font-weight: 800;
+            }
+
+            .segundo-paragrafo {
+                color: slateblue;
+                background-color: lightcyan
+            }
+            /*O mais especifico sempre tem mais prioridade*/
         </style>
     </head>
 
@@ -42,11 +69,11 @@
             <figcaption>Instituto Federal do Amazonas</figcaption>
         </figure>
         <h2 id="cursos">CURSOS</h2>
-            <p id="p-cursos1">A criação dos <span id="ifam">Institutos Federais</span> em 2008 revolucionou a educação técnica e tecnológica no Brasil,
+            <p class="primeiro-paragrafo">A criação dos <span id="ifam">Institutos Federais</span> em 2008 revolucionou a educação técnica e tecnológica no Brasil,
             unificando e expandindo diversas instituições estaduais. O IFAM, com raízes desde 1909, evoluiu de escolas
             técnicas e agrotécnicas para um complexo educacional com 15 campi no Amazonas. Oferece ensino básico, técnico,
             superior e pós-graduação, abrangendo diversas regiões e modalidades, incluindo educação a distância. </p>
-            <p id="p-cursos2">Atualmente, atende milhares de estudantes e conta com quase 2 mil servidores. O IFAM é referência em educação profissional e tecnológica na Amazônia</p>
+            <p class="segundo-paragrafo">Atualmente, atende milhares de estudantes e conta com quase 2 mil servidores. O IFAM é referência em educação profissional e tecnológica na Amazônia</p>
             <p><a href="cursos.html">Mais informações sobre os cursos</a></p>
             
             <ul> <!--unordered list / list item-->
@@ -100,7 +127,7 @@
             </table>
 
         <h2 id="pesquisa">PESQUISAS</h2>
-            <p id="p-pesquisa">A Iniciação Científica (IC) é uma modalidade de pesquisa que contribui na formação científica de alunos da
+            <p class="primeiro-paragrafo">A Iniciação Científica (IC) é uma modalidade de pesquisa que contribui na formação científica de alunos da
             Graduação ou do Ensino Médio sob a pespectiva teórica e metodológica exigida para uma pesquisa científica, que
             oportuniza o engajamento do aluno na atividade da pesquisa científica e que pode despertar o interesse destes
             pela ciência.</p>
@@ -137,7 +164,7 @@
             </ol>
 
         <h2 id="biblioteca">BIBLIOTECA</h2>
-            <p id="p-biblioteca">A Biblioteca do Campus Manaus Centro tem como finalidades proporcionar à comunidade acadêmico-escolar o acesso
+            <p class="segundo-paragrafo">A Biblioteca do Campus Manaus Centro tem como finalidades proporcionar à comunidade acadêmico-escolar o acesso
             organizado à informação registrada em seus diversos suportes e que atendam às ações e atividades de ensino,
             pesquisa e extensão. </p>
             <a href="biblioteca.html">Mais informações sobre a biblioteca</a>
