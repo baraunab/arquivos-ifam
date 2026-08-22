@@ -1,0 +1,101 @@
+<!DOCTYPE html> <!-- Diretiva / configuracação, não renderiza conteúdo, não é uma tag -->
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8"> 
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- Redenriza caracteres unicode -->
+        <title>IFAM</title>
+    </head>
+
+    <body>
+        <h1>Contato</h1>
+        <p>Entre em contato conosco para saber mais sobre nossos cursos </p>
+        
+        <!--http://meuserver.com.br/academico/processar-->
+        <!--metodo padrao eh get (mostra oq eh enviado do formulario na url)-->>
+        <form action="/processar" method="post">
+            <div>
+                <label for="id-nome">Nome:</label>
+                <input type="text" id="id-nome" name="campo-nome" placeholder="Digite seu nome"/>    
+            </div>
+            <br>
+            <div>
+                <span id="label-sexo">Sexo:</span>
+                <input type="radio" id="id-fem" name="campo-sexo" value="feminino"/>
+                <label for="id-fem">Feminino</label>
+                <input type="radio" id="id-masc" name="campo-sexo" value="masculino"/>
+                <label for="id-masc">Masculino</label>
+            </div>
+            <br>
+            <div>
+                <label for="id-email">E-mail:</label>
+                <input type="email" id="id-email" name="campo-email" placeholder="Digite seu email"/>
+            </div>
+            <br>
+
+            <div>
+                <label for="id-telefone">Telefone:</label>
+                <input type="text" id="id-telefone" name="campo-telefone" placeholder="Digite seu telefone"/>
+            </div>
+            <br>
+            <div>
+                <label for="id-nascimento">Data de Nascimento: </label>
+                <input type="date" id="id-nascimento" name="campo-nascimento" placeholder="Digite seu data de nascimento"/>
+            </div>
+            <br>
+            <div>
+                <label for="id-curso">Curso:</label>
+                <select id="id-curso" name="campo-curso">
+                    <option value="" disabled selected hidden>Selecione um curso...</option>
+                    <option value="tads" >Tecnologia em Análise e Desenvolvimento de Sistemas</option>
+                    <option value="tpp">Tecnologia em Produção Publicitária</option>
+                    <option value="tpa">Tecnologia em Produção de Alimentos</option>
+                    <option value="cicomp">Bacharelado em Ciêcias da Computação</option>
+                </select>
+            </div>
+            <br>
+               <div>
+                <label for="id-pesquisa">Linha de Pesquisa:</label>
+                <select id="id-pesquisa" name="campo-pesquisa">
+                    <option value="" disabled selected hidden>Selecione uma opção...</option>
+                    <option value="eng-soft">Engenharia de Software</option>
+                    <option value="ci-dados">Ciência de Dados</option>
+                    <option value="cal-int">Cálculo Integrado</option>
+                </select>
+            </div>
+            <br>
+            <div>
+                <span id="label-turno">Turno:</span>
+                <input type="radio" id="id-matutino" name="campo-turno" value="matutino"/>
+                <label for="id-matutino">Matutino</label>
+                <input type="radio" id="id-noturno" name="campo-turno" value="noturno"/>
+                <label for="id-noturno">Noturno</label>
+            </div>
+            <br>
+            <div>
+                <span id="label-interesses">Interesses:</span>
+                <input type="checkbox" id="id-web" name="campo-interesses" value="Desenvolvimento Web"/>
+                <label for="id-web">Desenvolvimento Web</label>
+                <input type="checkbox" id="id-ITI" name="campo-interesses" value="Infraestrutura de TI"/>
+                <label for="id-ITI">Infraestrutura de TI</label>
+            </div>
+            <br>
+            <div>
+                <label for="id-obs">Observações:</label>
+                <textarea id="id-obs" name="campo-obs" placeholder="Alguma observação?"></textarea>
+            </div>
+            <br>
+            <div>
+                <label for="id-senha">Nova senha:</label>
+                <input type="password" id="id-senha" name="campo-senha" placeholder="Digite sua senha">
+            </div>
+            <br>
+            <button type="submit" name="enviar" value="enviar">Enviar</button>
+            <button type="reset" name="limpar">Limpar formulário</button>
+            <br>
+        </form>
+        
+        <a href="ifam.html">Voltar para a página principal</a>
+    </body>
+
+</html>

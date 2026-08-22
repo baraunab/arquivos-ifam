@@ -12,71 +12,78 @@
         <h1>IFAM</h1>
         <a href="#cursos">Cursos</a> | 
         <a href="#pesquisa">Pesquisa</a> | 
-        <a href="#biblioteca">Biblioteca</a>
+        <a href="#biblioteca">Biblioteca</a> |
+        <a href="#contato">Contato</a>
+
         <figure>
             <a href="https://cmc.ifam.edu.br/" target="_blank">
                 <img src="images/ifam-cmc-logo.jpg" alt="Logo do IFAM CMC" width="200">
             </a>
             <figcaption>Instituto Federal do Amazonas</figcaption>
         </figure>
-        <h2 id="cursos">CURSOS</h2>
-            <p class="primeiro-paragrafo">A criação dos <span id="ifam">Institutos Federais</span> em 2008 revolucionou a educação técnica e tecnológica no Brasil,
-            unificando e expandindo diversas instituições estaduais. O IFAM, com raízes desde 1909, evoluiu de escolas
-            técnicas e agrotécnicas para um complexo educacional com 15 campi no Amazonas. Oferece ensino básico, técnico,
-            superior e pós-graduação, abrangendo diversas regiões e modalidades, incluindo educação a distância. </p>
-            <p class="segundo-paragrafo">Atualmente, atende milhares de estudantes e conta com quase 2 mil servidores. O IFAM é referência em educação profissional e tecnológica na Amazônia</p>
-            <p><a href="cursos.html">Mais informações sobre os cursos</a></p>
+
+        <div id="div-cursos">
+
+            <h2 id="cursos">CURSOS</h2>
+
+                <p id="curso-primeiro" class="primeiro-paragrafo">A criação dos <span id="ifam">Institutos Federais</span> em 2008 revolucionou a educação técnica e tecnológica no Brasil,
+                unificando e expandindo diversas instituições estaduais. O IFAM, com raízes desde 1909, evoluiu de escolas
+                técnicas e agrotécnicas para um complexo educacional com 15 campi no Amazonas. Oferece ensino básico, técnico,
+                superior e pós-graduação, abrangendo diversas regiões e modalidades, incluindo educação a distância. </p>
+                <p class="segundo-paragrafo">Atualmente, atende milhares de estudantes e conta com quase 2 mil servidores. O IFAM é referência em educação profissional e tecnológica na Amazônia</p>
+                <p><a href="cursos.html">Mais informações sobre os cursos</a></p>
+                
+                <ul> <!--unordered list / list item-->
+                    <li>Tecnologia em Análise e Desenvolvimento de Sistemas</li>
+                        <ul>
+                        
+                            <li>Modalidade: Graduação</li>
+                            <li>Duração: 3 anos</li>
+                        </ul>
+                    <li>Tecnologia em Produção Publicitária</li>
+                        <ul>
+                            <li>Modalidade: Graduação</li>
+                            <li>Duração: 3 anos</li>
+                        </ul>
+                    <li>Ciência da Computação</li>
+                        <ul>
+                            <li>Modalidade: Graduação</li>
+                            <li>Duração: 5 anos</li>
+                        </ul>
+                </ul>
+
+                <table>
+                    <caption class="caption-table">Tabela 1: Alguns cursos oferecidos pelo IFAM</caption>
+                    <thead>
+                        <tr>
+                            <th>Cursos</th>
+                            <th>Modalidade</th>
+                            <th>Duração</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><a class="a-table" href="./cursos/tads.html">Tecnologia em Análise e Desenvolvimento de Sistemas</a></td>
+                            <td >Graduação</td>
+                            <td>3 anos</td>
+                            <!-- Colocar link para pagina do curso, na pagina do curso mostrar
+                            as informacoes: Objetivo, Publico-alvo, 
+                            3 Disciplinas (tabela: nome, carga horária) -->
+                        </tr>
+                        <tr>
+                            <td><a class="a-table" href="cursos/cicomp.html"> Ciências da Computação</a></td>
+                            <td>Graduação</td>
+                            <td>5 anos</td>
+                        </tr>
+                        <tr>
+                            <td><a class="a-table" href="cursos/tpp.html">Tecnologia em Produção Publicitária</a></td>
+                            <td>Graduação</td>
+                            <td>5 anos</td>
+                        </tr>
+                    </tbody>
+                </table>
+        </div>
             
-            <ul> <!--unordered list / list item-->
-                <li>Tecnologia em Análise e Desenvolvimento de Sistemas</li>
-                    <ul>
-                    
-                        <li>Modalidade: Graduação</li>
-                        <li>Duração: 3 anos</li>
-                    </ul>
-                <li>Tecnologia em Produção Publicitária</li>
-                    <ul>
-                        <li>Modalidade: Graduação</li>
-                        <li>Duração: 3 anos</li>
-                    </ul>
-                <li>Ciência da Computação</li>
-                    <ul>
-                        <li>Modalidade: Graduação</li>
-                        <li>Duração: 5 anos</li>
-                    </ul>
-            </ul>
-
-            <table>
-                <caption class="caption-table">Tabela 1: Alguns cursos oferecidos pelo IFAM</caption>
-                <thead>
-                    <tr>
-                        <th>Cursos</th>
-                        <th>Modalidade</th>
-                        <th>Duração</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><a class="a-table" href="./cursos/tads.html">Tecnologia em Análise e Desenvolvimento de Sistemas</a></td>
-                        <td >Graduação</td>
-                        <td>3 anos</td>
-                        <!-- Colocar link para pagina do curso, na pagina do curso mostrar
-                         as informacoes: Objetivo, Publico-alvo, 
-                         3 Disciplinas (tabela: nome, carga horária) -->
-                    </tr>
-                    <tr>
-                        <td><a class="a-table" href="cursos/cicomp.html"> Ciências da Computação</a></td>
-                        <td>Graduação</td>
-                        <td>5 anos</td>
-                    </tr>
-                    <tr>
-                        <td><a class="a-table" href="cursos/tpp.html">Tecnologia em Produção Publicitária</a></td>
-                        <td>Graduação</td>
-                        <td>5 anos</td>
-                    </tr>
-                </tbody>
-            </table>
-
         <h2 id="pesquisa">PESQUISAS</h2>
             <p class="primeiro-paragrafo">A Iniciação Científica (IC) é uma modalidade de pesquisa que contribui na formação científica de alunos da
             Graduação ou do Ensino Médio sob a pespectiva teórica e metodológica exigida para uma pesquisa científica, que
@@ -113,7 +120,7 @@
                 <li>Laboratório de Engenharia de Software</li>
                 <li>Laboratório de Química</li>
             </ol>
-
+        
         <h2 id="biblioteca">BIBLIOTECA</h2>
             <p class="segundo-paragrafo">A Biblioteca do Campus Manaus Centro tem como finalidades proporcionar à comunidade acadêmico-escolar o acesso
             organizado à informação registrada em seus diversos suportes e que atendam às ações e atividades de ensino,
@@ -128,6 +135,12 @@
                 <dt>Periódicos</dt>
                     <dd>Lista de periódicos oferecidos pela biblioteca</dd>
             </dl>
+
+        <h2 id="contato">CONTATO</h2>
+        <p class="segundo-paragrafo">Você pode entrar em contato conosco para saber mais 
+            infromações sobre o curos</p>
+        <a href="contato.html">Preencha nosso formulário!</a>
+
     </body>
 
 </html>
