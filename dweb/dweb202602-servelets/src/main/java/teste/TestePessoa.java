@@ -15,9 +15,12 @@ public class TestePessoa {
         System.out.println("Telefone: " + pessoa.getTelefone());
         System.out.println("Email: " + pessoa.getEmail());
 
-        /*TODO - atividade
-        *  Criar as classes
+        // TODO - atividade
+
+        /*  Criar as classes
         * Cidade: Nome, Estado
         * Estado: Nome, Sigla */
+        // Associação entre as classes
+        // Servlets: biblioteca padrao do java para servidores
     }
 }
