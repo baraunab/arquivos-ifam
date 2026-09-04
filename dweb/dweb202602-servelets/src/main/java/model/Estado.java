@@ -1,4 +1,4 @@
-package controle;
+package model;
 
 public class Estado {
     private String nome;
@@ -15,7 +15,7 @@ public class Estado {
         return sigla;
     }
     public void setSigla(String sigla) {
-        this.nome = sigla;
+        this.sigla = sigla;
     }
 
 }

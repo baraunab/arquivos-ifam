@@ -1,7 +1,5 @@
 package model;
 
-import controle.Estado;
-
 public class Cidade {
 
     private String nome;
@@ -21,3 +19,12 @@ public class Cidade {
         this.estado = estado;
     }
 }
+/*
+|    - Cidade -   |         |      - Estado -    |
+|- nome: String   | *     1 |- nome: String      |
+|- estado: Estado | ------> |- sigla: String     |
+|---------------- |         |- cidades: Cidade[] |
+|   - metodos -   |         |     - metodos -    |
+|---------------- |         |------------------- |
+
+ */
