@@ -6,6 +6,7 @@ public class Pessoa {
     private String nome;
     private String email;
     private String telefone;
+    private Cidade cidade;
 
     // pode acessar o atributo
     public String getNome () {
@@ -30,6 +31,14 @@ public class Pessoa {
 
     public void setTelefone(String telefone) {
         this.telefone = telefone;
+    }
+
+    public Cidade getCidade() {
+        return cidade;
+    }
+
+    public void setCidade(Cidade cidade) {
+        this.cidade = cidade;
     }
 
 }
