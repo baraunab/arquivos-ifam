@@ -18,7 +18,7 @@ public class IniciaServidor {
         String webapp = new File("src/main/webapp").getAbsolutePath();
         Context context = tomcat.addWebapp("", webapp); // contexto pro servidor
 
-        String nomeServlet = "OlaIfamServlet";
+        String nomeServlet = "OlaIfam   Servlet";
         Tomcat.addServlet(context, nomeServlet, new OlaIfamServlet());
         context.addServletMappingDecoded("/olaifam", nomeServlet);
 

@@ -37,17 +37,22 @@ public class OlaIfamServlet extends HttpServlet {
         saida.println("<!DOCTYPE html>");
         saida.println("<html lang=\"pt-br\">");
         saida.println("<head>");
-        saida.println("<meta charsert=\"UTF-8\">");
-        saida.println("<title>Ola ifam</title>");
+        saida.println("     <meta charsert=\"UTF-8\">");
+        saida.println("     <title>Ola ifam</title>");
         saida.println("</head>");
+
         saida.println("<body>");
-        saida.println("<h1>Olá IFAM!</h1>");
-        saida.println("<p>Nome: " + pessoa.getNome() + " </p>");
-        saida.println("<p>Email: " + pessoa.getEmail() + " </p>");
-        saida.println("<p>Telefone: " + pessoa.getTelefone() + " </p>");
-        saida.println("<p>Cidade: " + pessoa.getCidade().getNome() + " </p>");
-        saida.println("<p>Estado (UF): " + pessoa.getCidade().getEstado().getNome() + " (" + pessoa.getCidade().getEstado().getSigla() + ")  </p>");
+        saida.println("     <h1>Olá IFAM!</h1>");
+        saida.println("     <p><b>Nome</b>: " + pessoa.getNome() + " </p>");
+        saida.println("     <p><b><i>Email</b></i>: " + pessoa.getEmail() + " </p>");
+        saida.println("     <p><b>Telefone</b>: " + pessoa.getTelefone() + " </p>");
+        saida.println("     <p><b>Cidade</b>: " + pessoa.getCidade().getNome() + " </p>");
+        saida.println("     <p><b>Estado (UF)</b>: " + pessoa.getCidade().getEstado().getNome() + " <b>(" + pessoa.getCidade().getEstado().getSigla() + ")</b>  </p>");
         saida.println("</body>");
+
         saida.println("</html>");
+
+        // Atividade
+        // Colocar os dados da pessoa em uma tabela
     }
 }
