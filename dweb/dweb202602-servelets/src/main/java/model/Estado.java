@@ -4,6 +4,10 @@ public class Estado {
     private String nome;
     private String sigla;
 
+    // Construtor
+    public Estado () {
+
+    }
     public String getNome () {
         return nome;
     }
