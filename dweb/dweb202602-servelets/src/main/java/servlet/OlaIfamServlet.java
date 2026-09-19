@@ -18,6 +18,12 @@ public class OlaIfamServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
+        String parametroNome = req.getParameter("nome");
+        String parametroEmail = req.getParameter("email");
+        String parametroTelefone = req.getParameter("telefone");
+        String parametroEstado = req.getParameter("estado");
+        String parametroCidade = req.getParameter("cidade");
+
         ArrayList<Pessoa> pessoas = new ArrayList<Pessoa>();
 
         Estado estado = new Estado();
@@ -27,6 +33,7 @@ public class OlaIfamServlet extends HttpServlet {
         Cidade cidade = new Cidade();
         cidade.setNome("Manaus");
         cidade.setEstado(estado);
+
 
         Pessoa pessoa1 = new Pessoa();
         pessoa1.setNome("Beatriz Barauna Bitar");
@@ -59,11 +66,23 @@ public class OlaIfamServlet extends HttpServlet {
         saida.println("</head>");
         saida.println("<body>");
         saida.println("     <h1>Olá IFAM!</h1>");
-      /*  saida.println("     <p><b>Nome</b>: " + pessoa.getNome() + " </p>");
-        saida.println("     <p><b><i>Email</b></i>: " + pessoa.getEmail() + " </p>");
-        saida.println("     <p><b>Telefone</b>: " + pessoa.getTelefone() + " </p>");
-        saida.println("     <p><b>Cidade</b>: " + pessoa.getCidade().getNome() + " </p>");
-        saida.println("     <p><b>Estado (UF)</b>: " + pessoa.getCidade().getEstado().getNome() + " <b>(" + pessoa.getCidade().getEstado().getSigla() + ")</b>  </p>");*/
+
+        // Atividade: adicionar os outros campos na pesquisa
+        saida.println("Valor do Parametro: " + parametroNome);
+        saida.println("<br>");
+        saida.println("<form method='GET' action='pessoa'>");
+
+        saida.println("     <label for='filtroNome' style=\"padding-right: 3px\">Nome</label>");
+        saida.println("     <input type='text' id='filtroNome' name='nome' value=''/>");
+
+
+
+        saida.println("     <br>");
+        saida.println("     <button type='submit' style=\"padding-left: 3px\">Pesquisar</button>");
+        saida.println("</form>");
+        saida.println("<br>");
+        saida.println("<br>");
+
         saida.println("     <table border=1px>");
         saida.println("         <caption>Tabela 1: Dados de Pessoa</caption>");
         saida.println("         <thead>");
@@ -76,15 +95,17 @@ public class OlaIfamServlet extends HttpServlet {
         saida.println("             </tr>");
         saida.println("         </thead>");
         saida.println("         <tbody>");
-
         for(Pessoa p:pessoas) {
-            saida.println("             <tr>");
-            saida.println("                 <td>" + p.getNome() + "</td>");
-            saida.println("                 <td>" + p.getEmail() + "</td>");
-            saida.println("                 <td>" + p.getTelefone() + "</td>");
-            saida.println("                 <td>" + p.getCidade().getNome() + "</td>");
-            saida.println("                 <td>" + p.getCidade().getEstado().getNome() + "</td>");
-            saida.println("             <tr>");
+
+            if (p.getNome().contains(parametroNome)) {
+                saida.println("             <tr>");
+                saida.println("                 <td>" + p.getNome() + "</td>");
+                saida.println("                 <td>" + p.getEmail() + "</td>");
+                saida.println("                 <td>" + p.getTelefone() + "</td>");
+                saida.println("                 <td>" + p.getCidade().getNome() + "</td>");
+                saida.println("                 <td>" + p.getCidade().getEstado().getNome() + "</td>");
+                saida.println("             </tr>");
+            }
         }
 
         saida.println("         </tbody>");
