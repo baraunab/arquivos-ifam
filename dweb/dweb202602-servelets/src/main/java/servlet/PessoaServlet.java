@@ -7,25 +7,21 @@ import jakarta.servlet.http.HttpServletResponse;
 import model.Cidade;
 import model.Estado;
 import model.Pessoa;
+import org.eclipse.jdt.internal.compiler.lookup.InferenceVariable;
 
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.List;
 
 public class PessoaServlet extends HttpServlet {
     // protocolo http - get/post sao metodos
 
-    @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    private List<Pessoa> pessoas;
+    private List<Cidade> cidades;
 
-        String acao = req.getParameter("acao");
-        if (acao == null) { acao = "listar"; }
-
-        String parametroNome = req.getParameter("nome");
-        if(parametroNome == null) {parametroNome = "";}
-
-        ArrayList<Pessoa> pessoas = new ArrayList<Pessoa>();
-
+    public void init () {
+        this.pessoas = new ArrayList<Pessoa>();
         Estado estado = new Estado();
         estado.setNome("Amazonas");
         estado.setSigla("AM");
@@ -33,6 +29,14 @@ public class PessoaServlet extends HttpServlet {
         Cidade cidade = new Cidade();
         cidade.setNome("Manaus");
         cidade.setEstado(estado);
+
+        Cidade cidade1 = new Cidade();
+        cidade1.setNome("Presidente Figueiredo");
+        cidade1.setEstado(estado);
+
+        this.cidades = new ArrayList<Cidade>();
+        cidades.add(cidade);
+        cidades.add(cidade1);
 
         Pessoa pessoa1 = new Pessoa();
         pessoa1.setNome("Beatriz Barauna Bitar");
@@ -56,6 +60,17 @@ public class PessoaServlet extends HttpServlet {
         pessoas.add(pessoa2);
         pessoas.add(pessoa3);
 
+    }
+
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
+        String acao = req.getParameter("acao");
+        if (acao == null) { acao = "listar"; }
+
+        String parametroNome = req.getParameter("nome");
+        if(parametroNome == null) {parametroNome = "";}
+
         // verificar se o botao salvar foi pressionado
         String botaoSalvar = req.getParameter("salvar");
         if (botaoSalvar != null) {
@@ -65,23 +80,17 @@ public class PessoaServlet extends HttpServlet {
             String parEmail = req.getParameter("email");
             String parTelefone = req.getParameter("telefone");
             String parCidade = req.getParameter("cidade");
-            String parEstado = req.getParameter("estado");
-
-            Estado estado1 = new Estado();
-            estado1.setNome(parEstado);
-
-            Cidade cidade1 = new Cidade();
-            cidade1.setNome(parEstado);
-            cidade1.setEstado(estado1);
-
+            
             Pessoa pessoa = new Pessoa();
             pessoa.setNome(parNome);
             pessoa.setEmail(parEmail);
             pessoa.setTelefone(parTelefone);
-            pessoa.setCidade(cidade1);
+            pessoa.setCidade(cidades.get(Integer.parseInt(parCidade)));
 
             // adiciona a nova pessoa na lista
             pessoas.add(pessoa);
+
+            resp.sendRedirect("pessoa");
         }
 
         PrintWriter saida = resp.getWriter();
@@ -115,8 +124,7 @@ public class PessoaServlet extends HttpServlet {
             saida.println("                 <th>Nome</th>");
             saida.println("                 <th>Email</th>");
             saida.println("                 <th>Telefone</th>");
-            saida.println("                 <th>Cidade</th>");
-            saida.println("                 <th>Estado</th>");
+            saida.println("                 <th>Cidade/Sigla</th>");
             saida.println("             </tr>");
             saida.println("         </thead>");
             saida.println("         <tbody>");
@@ -127,8 +135,7 @@ public class PessoaServlet extends HttpServlet {
                     saida.println("                 <td>" + p.getNome() + "</td>");
                     saida.println("                 <td>" + p.getEmail() + "</td>");
                     saida.println("                 <td>" + p.getTelefone() + "</td>");
-                    saida.println("                 <td>" + p.getCidade().getNome() + "</td>");
-                    saida.println("                 <td>" + p.getCidade().getEstado().getNome() + "</td>");
+                    saida.println("                 <td>" + p.getCidade().getNome() + "/"+ p.getCidade().getEstado().getSigla() +"</td>");
                     saida.println("             </tr>");
 
                 }
@@ -148,24 +155,24 @@ public class PessoaServlet extends HttpServlet {
             saida.println("     <label for='campoTelefone' style=\"padding-right: 3px\">Telefone: </label>");
             saida.println("     <input type='text' id='campTelefone' name='telefone' value=''/>");
             saida.println("<br> <br>");
-            saida.println("     <label for='campoCidade' style=\"padding-right: 3px\">Cidade</label>");
-            saida.println("     <input type='text' id='campoCidade' name='cidade' value=''/>");
-            saida.println("<br> <br>");
-            saida.println("     <label for='campoEstado' style=\"padding-right: 3px\">Estado</label>");
-            saida.println("     <input type='text' id='campoEstado' name='estado' value=''/>");
+
+            saida.println("<label>Cidade/Sigla</label>");
+            saida.println("<select name='cidade'>");
+            int i = 0;
+            for(Cidade c:cidades) {
+                saida.println("     <option value='"+ i +"'>" + c.getNome() + "/" + c.getEstado().getSigla() + "<option>");
+                i++;
+            }
+            saida.println("</select for='cidade'>");
             saida.println("<br> <br>");
             saida.println("     <button type='submit' name='salvar' value='pressionado' style=\"padding-left: 3px\">Salvar</button>");
             saida.println("</form>");
 
-        } else if (acao.contains("nome")) {
-            saida.println("teste");
         }
 
         saida.println("<br>");
         saida.println("<br>");
         saida.println("</body>");
         saida.println("</html>");
-        // Atividade
-        // Colocar os dados da pessoa em uma tabela
     }
 }
