@@ -19,6 +19,7 @@
             <th>Cidade</th>
             <th>Estado</th>
             <th>País</th>
+            <th>Ações</th>
         </tr>
 
     <%
@@ -26,8 +27,10 @@
         List<Pessoa> listaPessoas = (List<Pessoa>) request.getAttribute("listaPessoas");
 
         if(listaPessoas != null){
-            for(Pessoa p: listaPessoas){
+            for(int i = 0; i < listaPessoas.size(); i++){
+                Pessoa p = listaPessoas.get(i);
     %>
+
         <tr>
             <td><% out.println(p.getNome()); %></td>
             <td><% out.println(p.getTelefone()); %></td>
@@ -35,10 +38,14 @@
             <td><% out.println(p.getCidade() != null ? p.getCidade().getNome() : "-"); %></td>
             <td><% out.println(p.getCidade() != null && p.getCidade().getEstado() != null ? p.getCidade().getEstado().getSigla() : "-"); %></td>
             <td><% out.println(p.getCidade() != null && p.getCidade().getEstado() != null && p.getCidade().getEstado().getPais() != null ? p.getCidade().getEstado().getPais().getNome() : "-"); %></td>
+            <td>
+                <a href='pessoa?acao=excluir&id=<%= i %>' onclick="return confirm('Deseja realmente excluir?');"\>Excluir</a>
+                <a href="pessoa?acao=editar&idEditar=<%= i %>" />Editar</a>
          </tr>
 
 
     <%
+
             }
         }
     %>

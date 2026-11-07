@@ -80,9 +80,54 @@ public class PessoaServlet extends HttpServlet {
         pessoas.add(pessoa4);
     }
 
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
+        String acao = req.getParameter("acao");
+
+        if(acao.equals("salvar")){
+
+            String nome = req.getParameter("nome");
+            String parId = req.getParameter("id");
+            String telefone = req.getParameter("telefone");
+            String email = req.getParameter("email");
+            String indiceCidade = req.getParameter("cidade");
+            Pessoa pessoa;
+
+            if (parId != null && !parId.isEmpty()) {
+                pessoa = pessoas.get(Integer.parseInt(parId));
+                pessoa.setNome(nome);
+                pessoa.setEmail(email);
+                pessoa.setTelefone(telefone);
+
+                if(indiceCidade != null && !indiceCidade.isEmpty()) {
+                    int indice = Integer.parseInt((indiceCidade));
+                    pessoa.setCidade(cidades.get(indice));
+                }
+            } else {
+                pessoa = new Pessoa();
+                pessoa.setNome(nome);
+                pessoa.setTelefone(telefone);
+                pessoa.setEmail(email);
+
+                if(indiceCidade != null && !indiceCidade.isEmpty()) {
+                    int indice = Integer.parseInt((indiceCidade));
+                    pessoa.setCidade(cidades.get(indice));
+                }
+
+                pessoas.add(pessoa);
+            }
+
+
+            resp.sendRedirect("pessoa?acao=listar");
+
+        }
+    }
+
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException{
 
             String acao = req.getParameter("acao");
+
             if(acao == null){
                 acao = "listar";
             }
@@ -94,26 +139,63 @@ public class PessoaServlet extends HttpServlet {
                 RequestDispatcher dispatcher = req.getRequestDispatcher("pessoas.jsp");
 
                 dispatcher.forward(req, resp);
-            }else if(acao.equals("cadastrar")){
+            }else if(acao.equals("cadastrar") || acao.equals("editar")){
+
+                if (acao.equals("editar")) {
+                    String idEditar = req.getParameter("idEditar");
+                    req.setAttribute("idEditar", idEditar);
+                    req.setAttribute("listaPessoas", pessoas);
+                }
+                req.setAttribute("listaCidades", cidades);
 
                 RequestDispatcher dispatcher = req.getRequestDispatcher("cadastro.jsp");
                 dispatcher.forward(req, resp);
 
-            }else if(acao.equals("salvar")){
+            }else if(acao.equals("excluir")) {
+                String idExcluir = req.getParameter("id");
+
+                if(idExcluir != null && !idExcluir.isEmpty()) {
+                    int indice = Integer.parseInt(idExcluir);
+
+                    if(indice >= 0 && indice < pessoas.size()) {
+                        pessoas.remove(indice);
+                    }
+                }
+
+                resp.sendRedirect("pessoa");
+            }
+
+            String salvar = req.getParameter("salvar");
+            if (salvar != null) {
+                String parId = req.getParameter("id");
 
                 String nome = req.getParameter("nome");
                 String telefone = req.getParameter("telefone");
                 String email = req.getParameter("email");
+                String cidade = req.getParameter("cidade");
 
-                Pessoa pessoa = new Pessoa();
-                pessoa.setNome(nome);
-                pessoa.setTelefone(telefone);
-                pessoa.setEmail(email);
+                Cidade cidadeSelecionada = cidades.get(Integer.parseInt(cidade));
 
-                pessoas.add(pessoa);
+                if (parId == null || parId.equals("")) {
+                    Pessoa novaPessoa = new Pessoa();
 
-                resp.sendRedirect("pessoa?acao=listar");
+                    novaPessoa.setNome(nome);
+                    novaPessoa.setTelefone(telefone);
+                    novaPessoa.setEmail(email);
+                    novaPessoa.setCidade(cidadeSelecionada);
 
+                    pessoas.add(novaPessoa);
+                } else {
+                    int indice = Integer.parseInt(parId);
+                    Pessoa pessoaAlteracao = pessoas.get(indice);
+
+                    pessoaAlteracao.setNome(nome);
+                    pessoaAlteracao.setTelefone(telefone);
+                    pessoaAlteracao.setEmail(email);
+                    pessoaAlteracao.setCidade(cidadeSelecionada);
+                }
+
+                resp.sendRedirect("pessoa");
             }
     }
 
